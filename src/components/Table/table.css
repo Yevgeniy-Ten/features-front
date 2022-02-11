@@ -1,0 +1,9 @@
+.table {
+    overflow-y: auto;
+}
+
+.table-visible {
+    overflow: hidden;
+    border-radius: 30px;
+    border:1px solid #ccc;
+}
