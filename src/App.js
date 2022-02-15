@@ -6,13 +6,13 @@ function App() {
     const [activeComponent, setActiveComponent] = useState([{
         id: 1,
         component: TableWrap,
-        active: true,
+        active: false,
         name: "Таблица"
     },
         {
             id: 2,
             component: Slider,
-            active: false,
+            active: true,
             name: "Слайдер"
         }])
     const toggleActiveComponent = (id) => {

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/big-table-slider.iml" filepath="$PROJECT_DIR$/.idea/big-table-slider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/featurestable.iml" filepath="$PROJECT_DIR$/.idea/featurestable.iml" />
     </modules>
   </component>
 </project>
