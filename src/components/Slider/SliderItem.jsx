@@ -6,10 +6,9 @@ const SliderItem = ({
                     }) => {
     const cls = ["slider__item"]
     return (
-        <div className={"slider__item-wrap px-1"}>
+        <div  draggable={false} className={"slider__item-wrap px-1"}>
             <div className={cls.join(" ")}>
-                {id}
-                <img src={img} className={"w-100"} alt="car"/>
+                <img draggable={false} src={img} className={"w-100"} alt="car"/>
             </div>
         </div>
     );

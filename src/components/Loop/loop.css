@@ -1,0 +1,24 @@
+.loop-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    opacity: 0;
+    background-repeat: no-repeat;
+    visibility: hidden;
+    transform: scale(0);
+}
+
+.loop-circle.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    visibility: visible;
+    border: 3px solid black;
+}
+
+.loop-wrap {
+    cursor: none;
+    overflow: hidden;
+}

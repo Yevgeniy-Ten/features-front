@@ -1,0 +1,53 @@
+
+.img-blur {
+    position: relative;
+    overflow: hidden;
+}
+
+.img-blur::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+}
+
+.img-crop {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    border: 3px dotted gray;
+    left: 0;
+
+    background-repeat: no-repeat;
+    cursor: grab;
+}
+
+.img-crop:hover .resize-btn {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s;
+}
+
+.resize-btn {
+    position: absolute;
+    top: 50%;
+    color: white;
+    font-size: 30px;
+    background: black;
+    cursor: pointer;
+    border-radius: 50%;
+    border: 1px solid black;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.resize-btn--left {
+    left: 0;
+}
+
+.resize-btn--right {
+    right: 0;
+}

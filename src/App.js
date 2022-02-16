@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import TableWrap from "./components/Table/TableWrap";
 import Slider from "./components/Slider/Slider";
+import Loop from "./components/Loop/Loop";
+import CropImage from "./components/CropImage/CropImage";
 
 function App() {
     const [activeComponent, setActiveComponent] = useState([{
@@ -12,12 +14,25 @@ function App() {
         {
             id: 2,
             component: Slider,
-            active: true,
+            active: false,
             name: "Слайдер"
+        },
+        {
+            id: 3,
+            component: Loop,
+            active: false,
+            name: "Лупа"
+        },
+        {
+            id: 4,
+            component: CropImage,
+            active: true,
+            name: "Обрезать"
         }])
     const toggleActiveComponent = (id) => {
         setActiveComponent(prev => prev.map(a => ({...a, active: a.id === id})))
     }
+
     return (
         <>
             <nav className="navbar navbar-light bg-light">
