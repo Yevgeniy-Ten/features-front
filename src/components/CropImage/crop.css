@@ -37,10 +37,16 @@
     color: white;
     font-size: 30px;
     background: black;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
     border: 1px solid black;
     opacity: 0;
+    user-select: none;
     visibility: hidden;
 }
 

@@ -7,7 +7,8 @@ const CropImage = () => {
     const [isClicked, setIsClicked] = useState(false)
     const [isResizeBtnClicked, setIsResizeBtnClicked] = useState({
         x: 0,
-        clicked: false
+        rightClicked: false,
+        leftClicked: false
     })
     const [offsetParent, setOffsetParent] = useState({
         x: 0,
@@ -30,6 +31,7 @@ const CropImage = () => {
             loopCursorPointerRef.current.style.width = `${widthWrapRef.current.clientWidth * 0.3}px`
         }, 50)
     }, [])
+
     const onStartClick = () => {
         setIsClicked(true)
     }
@@ -43,37 +45,35 @@ const CropImage = () => {
             }
             loopCursorPointerRef.current.style.left = `${x}px`
             loopCursorPointerRef.current.style.backgroundPositionX = `-${x}px`
-        } else if (isResizeBtnClicked.clicked) {
+        } else if (isResizeBtnClicked.rightClicked) {
             const leftOffset = e.clientX - offsetParent.x
-            if (leftOffset >= (offsetParent.width - 10)) {
+            if ((leftOffset) >= offsetParent.width) {
                 onResizeBtnClickUp();
             }
             x = e.clientX - isResizeBtnClicked.x
-            const isRight = x > 0
-            if (isRight) {
-                const currentWidth = loopCursorPointerRef.current.offsetWidth
-                loopCursorPointerRef.current.style.width = `${currentWidth + x}px`
-                setIsResizeBtnClicked((prev) => ({...prev, x: e.clientX}))
-            }
+            if (x === 0) return;
+            const currentWidth = loopCursorPointerRef.current.offsetWidth
+            loopCursorPointerRef.current.style.width = `${currentWidth + x}px`
+            setIsResizeBtnClicked((prev) => ({...prev, x: e.clientX}))
         }
     }
     const onEndClick = () => {
         setIsClicked(false)
-        onResizeBtnClickUp()
     }
     const onResizeBtnClick = (e) => {
         e.stopPropagation()
         setIsResizeBtnClicked(prev => {
             return {
                 ...prev,
-                clicked: true,
+                rightClicked: true,
                 x: e.clientX
             }
         })
     }
     const onResizeBtnClickUp = () => {
         setIsResizeBtnClicked({
-            clicked: false,
+            rightClicked: false,
+            leftClicked: false,
             x: 0
         })
     }
